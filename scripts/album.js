@@ -29,6 +29,20 @@ var albumMarconi = {
 		{ title: 'Wrong phone number', duration: '2:15'}
 	]
 };
+var albumTen = {
+	title: 'Ten',
+	artist: 'Pearl Jam',
+	label: 'Epic',
+	year: '1991',
+	albumArtUrl: 'assets/images/album_covers/PearlJam-Ten2.jpg',
+	songs: [
+		{ title: 'Once', duration: '4:26' },
+		{ title: 'Evenflow', duration: '3:14' },
+		{ title: 'Alive', duration: '5:01' },
+		{ title: 'Why Go', duration: '3:21'},
+		{ title: 'Black', duration: '2:15'}
+	]
+};
 
 var createSongRow = function(songNumber, songName, songLength) {
 	var template =
@@ -42,19 +56,18 @@ var createSongRow = function(songNumber, songName, songLength) {
 	return template;
 };
 
-var setCurrentAlbum = function(album) {
-    
 	var albumTitle = document.getElementsByClassName('album-view-title')[0];
 	var albumArtist = document.getElementsByClassName('album-view-artist')[0];
 	var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
 	var albumImage = document.getElementsByClassName('album-cover-art')[0];
 	var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
-     
-	albumTitle.firstChild = album.title;
-	albumArtist.firstChild = album.artist;
-	albumReleaseInfo.firstChild = album.year + ' ' + album.label;
-	albumImage.setAttribute('src', album.albumArtUrl);
+var setCurrentAlbum = function(album) {
+    
+		albumTitle.firstChild = album.title;
+    albumArtist.firstChild = album.artist;
+    albumReleaseInfo.firstChild = album.year + ' ' + album.label;
+    albumImage.setAttribute('src', album.albumArtUrl);
 
 
 	albumSongList.innerHTML = '';
@@ -67,4 +80,19 @@ var setCurrentAlbum = function(album) {
 
 	window.onload = function() {
 		setCurrentAlbum(albumPicasso);
+		
+		var albumsArray = [albumPicasso,albumMarconi,albumTen];
+		var index = 1;
+	
+		//code to change album when image is clicked
+		albumImage.addEventListener("click", function(event) {
+			setCurrentAlbum(albumsArray[index]);
+			index++;
+			if (index == albumsArray.length){
+				index = 0;
+			}
+		});
+		
 	};
+
+
