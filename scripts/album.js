@@ -64,9 +64,9 @@ var createSongRow = function(songNumber, songName, songLength) {
 
 var setCurrentAlbum = function(album) {
     
-		albumTitle.firstChild = album.title;
-    albumArtist.firstChild = album.artist;
-    albumReleaseInfo.firstChild = album.year + ' ' + album.label;
+		albumTitle.firstChild.nodeValue = album.title;
+    albumArtist.firstChild.nodeValue = album.artist;
+    albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
     albumImage.setAttribute('src', album.albumArtUrl);
 
 
