@@ -65,6 +65,7 @@ var setCurrentAlbum = function(album) {
 		albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
 	}
 };
+//---------
 
 var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
 var songRows = document.getElementsByClassName('album-view-song-item');
@@ -75,11 +76,12 @@ var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></
 		setCurrentAlbum(albumPicasso);
 		
 		songListContainer.addEventListener('mouseenter', function(event) {
-			
+			 console.log(event.target.className);
 			 if (event.target.parentElement.className === 'album-view-song-item') {
-					event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+				 console.log("dfghjkl");	
+				 event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
 			 }
-	 	});
+	 	},true);
 		
 		for (var i = 0; i < songRows.length; i++) {
 			songRows[i].addEventListener('mouseleave', function(event){
