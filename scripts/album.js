@@ -105,7 +105,8 @@ var clickHandler = function(targetElement) {
 		currentlyPlayingSong = null;
 	
 	}else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')){
-		var currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
+		var previouslyPlayingSong = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
+		previouslyPlayingSong.innerHTML = currentlyPlayingSong;
 		songItem.innerHTML = pauseButtonTemplate;
 		currentlyPlayingSong = songItem.getAttribute('data-song-number');
 	}
@@ -126,7 +127,7 @@ var currentlyPlayingSong = null;
 		songListContainer.addEventListener('mouseenter', function(event) {
 			 
 			 if (event.target.parentElement.className === 'album-view-song-item') {
-				 event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+				 //event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
 				 var songItem = getSongItem(event.target);
 				 
 				 if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
