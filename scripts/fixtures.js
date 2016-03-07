@@ -12,7 +12,6 @@ var albumPicasso = {
 		{ title: 'Magenta', duration: '2:15', audioUrl: '/asset/music/magenta'}
 	]
 };
-
 // Another Example Album
 var albumMarconi = {
 	title: 'The Telephone',
