@@ -193,6 +193,20 @@ var updatePlayerBarSong = function() {
 	$('.main-controls .play-pause').html(playerBarPauseButton);
 };
 
+var toggleFromPlayerBar(){
+	var playBarButton = $()
+	if (currentlyPlayingSongNumber) {
+		
+	}
+	
+	
+};
+
+
+
+
+
+
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 var playerBarPlayButton = '<span class="ion-play"></span>';
