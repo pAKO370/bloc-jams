@@ -132,6 +132,7 @@ var setCurrentTimeInPlayerBar = function(currentTime){
 	var $currentTimeElement = $('.seek-control .current-time');
 	$currentTimeElement.text(currentTime);
 };
+/////////--------------------------------------
 var setTotalTimeInPlayerBar = function(totalTime) {
 	var $totalTimeElement = $('.seek-control .total-time');
 	$totalTimeElement.text(totalTime);
@@ -152,7 +153,7 @@ var filterTimeCode = function(timeInSeconds) {
 	
 	return output
 };
-
+/////////--------------------------------------
 var updateSeekBarWhileSongPlays = function() {
 	if (currentSoundFile) {
 		currentSoundFile.bind('timeupdate', function(event){
@@ -289,14 +290,14 @@ var nextSong = function() {
 var trackIndex = function(album, song) {
 	return album.songs.indexOf(song);
 };
-
+//////////--------------------------------------
 var updatePlayerBarSong = function() {
 
   $('.currently-playing .song-name').text(currentSongFromAlbum.title);
   $('.currently-playing .artist-name').text(currentAlbum.artist);
   $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
 	$('.main-controls .play-pause').html(playerBarPauseButton);
-	setTotalTimeInPlayerBar(filterTimeCode(currentSongFromAlbum.length));
+	setTotalTimeInPlayerBar(currentSongFromAlbum.length);
 };
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
