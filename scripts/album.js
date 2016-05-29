@@ -1,3 +1,4 @@
+$('section.player-bar').slideUp();
 var setSong = function(songNumber){
 	if (currentSoundFile) {
 		currentSoundFile.stop();
@@ -65,6 +66,7 @@ if (currentlyPlayingSongNumber !== null) {
 	 
 		$(this).html(pauseButtonTemplate);
 		updatePlayerBarSong();
+	 $('section.player-bar').slideDown();
  } else if (currentlyPlayingSongNumber === songNumber) {
 
 		if (currentSoundFile.isPaused()) {
@@ -104,6 +106,7 @@ if (currentlyPlayingSongNumber !== null) {
 	$row.hover(onHover, offHover);
 	return $row;
 };
+
 
 var setCurrentAlbum = function(album) {
 	currentAlbum = album;
@@ -159,7 +162,7 @@ var updateSeekBarWhileSongPlays = function() {
 		currentSoundFile.bind('timeupdate', function(event){
 			var currentTime = this.getTime();
 			var seekBarFillRatio = this.getTime() / this.getDuration();
-			var $seekBar = $('.seek-control .seekbar');
+			var $seekBar = $('.seek-control .seek-bar');
 			updateSeekPercentage($seekBar, seekBarFillRatio);	setCurrentTimeInPlayerBar(filterTimeCode(currentTime));
 		});
 	}
@@ -297,7 +300,7 @@ var updatePlayerBarSong = function() {
   $('.currently-playing .artist-name').text(currentAlbum.artist);
   $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
 	$('.main-controls .play-pause').html(playerBarPauseButton);
-	setTotalTimeInPlayerBar(currentSongFromAlbum.length);
+	setTotalTimeInPlayerBar(filterTimeCode(currentSongFromAlbum.duration));
 };
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
@@ -313,12 +316,22 @@ var currentAlbum = null;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
-
+var mainToggle = function(){
+	if(currentSoundFile.isPaused()){
+		currentSoundFile.play();
+		$('.main-controls .play-pause').html(playerBarPauseButton);
+	}else{
+		currentSoundFile.pause();
+		$('.main-controls .play-pause').html(playerBarPlayButton);
+	}
+}
 	$(document).ready(function() {
 		setCurrentAlbum(albumPicasso);
 		$previousButton.click(previousSong);
 		$nextButton.click(nextSong);
+		$('.main-controls .play-pause').click(mainToggle);
 		setupSeekBars();
+		
 	});
 
 

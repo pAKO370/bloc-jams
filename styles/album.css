@@ -39,6 +39,9 @@ body.album {
 .album-view-song-item {
 	height: 3rem;
 	border-bottom: 1px solid rgba(255,255,255,0.5);
+	display: block;
+	padding: 2rem 2rem 2rem 0rem
+		
 }
 .song-item-number {
 	width: 5%;
@@ -48,13 +51,15 @@ body.album {
 	width: 85%;
 }
 .song-item-duration {
-	width: 5%;
+	width: 300px;
+	position: relative;
+	text-align: right;
 }
 
 .album-song-button {
 	text-align: center;
-	font-size: 14px;
-	padding: 6.5px;
+	font-size: 18px;
+	padding: 5px 0px 0px 1px;
 	background-color: white;
  	color: rgb(210, 40, 123);
  	border-radius: 50% 50%;
@@ -68,6 +73,7 @@ body.album {
 	 cursor: pointer;
 	 color: white;
 	 background-color: rgb(210, 40, 123);
+	 padding: 4.8px 0px 0px 2px;
 }
 
 .album-song-button span {
