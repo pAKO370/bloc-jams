@@ -37,7 +37,7 @@ body.album {
 	font-size: 0.75rem;
 }
 .album-view-song-item {
-	height: 3rem;
+	height: 1rem;
 	border-bottom: 1px solid rgba(255,255,255,0.5);
 	display: block;
 	padding: 2rem 2rem 2rem 0rem
@@ -73,7 +73,8 @@ body.album {
 	 cursor: pointer;
 	 color: white;
 	 background-color: rgb(210, 40, 123);
-	 padding: 4.8px 0px 0px 2px;
+	 padding: 5px 0px 0px 2px;
+		
 }
 
 .album-song-button span {

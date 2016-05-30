@@ -1,4 +1,4 @@
-$('section.player-bar').slideUp();
+//$('section.player-bar').slideUp();
 var setSong = function(songNumber){
 	if (currentSoundFile) {
 		currentSoundFile.stop();
